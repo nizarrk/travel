@@ -4,8 +4,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+    <link href="<?= base_url('assets/fonts/font1.css')?>" rel='stylesheet' type='text/css'>
+    <link href="<?= base_url('assets/fonts/font2.css')?>" rel='stylesheet' type='text/css'>
 
     <!-- Bootsrap -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css')?>">

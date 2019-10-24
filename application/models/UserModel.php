@@ -4,13 +4,13 @@ class UserModel extends CI_Model
 {
     private $_table = "user";
 
-    public  $id,
-            $nama,
-            $alamat,
-            $telp,
-            $foto,
-            $email,
-            $pass;
+    public  $id_user,
+            $nama_user,
+            $alamat_user,
+            $telp_user,
+            $foto_user = "default.jpg",
+            $email_user,
+            $pass_user;
 
     public function rules() {
         return [
@@ -32,11 +32,11 @@ class UserModel extends CI_Model
 
             ['field' => 'password',
             'label' => 'Password',
-            'rules' => 'required'],
+            'rules' => 'required|min_length[8]'],
 
             ['field' => 'konfirm',
             'label' => 'Konfirmasi Password',
-            'rules' => 'required'],
+            'rules' => 'required|matches[password]'],
         ];
     }
 
@@ -50,11 +50,11 @@ class UserModel extends CI_Model
 
     public function create() {
         $post = $this->input->post();
-        $this->nama = $post["nama"];
-        $this->alamat = $post["alamat"];
-        $this->telp = $post["telp"];
-        $this->email = $post["email"];
-        $this->pass = $post["password"];
+        $this->nama_user = $post["nama"];
+        $this->alamat_user = $post["alamat"];
+        $this->telp_user = $post["telp"];
+        $this->email_user = $post["email"];
+        $this->pass_user = md5($post["password"]);
         $this->db->insert($this->_table, $this);
     }
 
@@ -71,5 +71,12 @@ class UserModel extends CI_Model
 
     public function delete($id) {
         return $this->db->delete($this->_table, array("id_user" => $id));
+    }
+
+    public function cekLogin($email, $password) {
+        $this->db->where('email_user', $email);
+        $this->db->where('pass_user', md5($password));
+        $query = $this->db->get('user');
+        return $query->row_array();
     }
 }

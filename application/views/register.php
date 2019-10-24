@@ -18,49 +18,64 @@
 
     <div class="container">
 
+    <div class="form-group alerts">
+                    
+        <?php if ($this->session->flashdata('fail')){ ?>
+            <div class="alert alert-warning" role="alert">
+                <?php echo $this->session->flashdata('fail'); ?>
+            </div>
+        <?php } ?>
+        
+    </div>
+
         <div class="row">
 
             <div style="margin-left: 250px; margin-right: 250px;">
 
                 <h2 class="title-style-2">REGISTER FORM <span class="title-under"></span></h2>
-
-                <form action="php/mail.php" class="contact-form ajax-form">
+                <form action="<?=base_url('User/add')?>" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input type="text" name="nama" class="form-control" placeholder="Nama*" required>
+                        <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" name="nama" class="form-control" placeholder="Nama*" required>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('nama') ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" name="alamat" class="form-control" placeholder="Alamat*" required>
+                        <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>" type="text" name="alamat" class="form-control" placeholder="Alamat*" required>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('alamat') ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="telp">No. HP</label>
-                        <input type="text" name="telp" class="form-control" placeholder="No. HP*" required>
+                        <input class="form-control <?php echo form_error('telp') ? 'is-invalid':'' ?>" type="text" name="telp" class="form-control" placeholder="No. HP*" required>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('telp') ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email*" required>
+                        <input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>" type="email" name="email" class="form-control" placeholder="Email*" required>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('email') ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Password*" required>
+                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>" type="password" name="password" class="form-control" placeholder="Password*" required>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('password') ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="konfirm">Konfirmasi Password</label>
-                        <input type="password" name="konfirm" class="form-control" placeholder="Konfirmasi Password*" required>
-                    </div>
-
-                    <div class="form-group alerts">
-                    
-                        <div class="alert alert-success" role="alert">
-                            
+                        <input class="form-control <?php echo form_error('konfirm') ? 'is-invalid':'' ?>" type="password" name="konfirm" class="form-control" placeholder="Konfirmasi Password*" required>
+                        <div class="invalid-feedback">
+                            <?php echo form_error('konfirm') ?>
                         </div>
-
-                        <div class="alert alert-danger" role="alert">
-                            
-                        </div>
-                        
                     </div>
 
                         <div class="form-group">

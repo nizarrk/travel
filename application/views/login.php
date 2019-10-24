@@ -18,33 +18,43 @@
 
     <div class="container">
 
+    <!-- jalankan validasi pesan -->
+    <?php if($this->session->flashdata('fail')) { ?>
+        <div style="margin-left: 250px; margin-right: 250px;" class="alert alert-warning" role="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <h4>Peringatan!</h4>
+            <?php echo $this->session->flashdata('fail'); ?>
+        </div>
+    <?php  
+                }
+        else if($this->session->flashdata('success')) {?>
+            <div style="margin-left: 250px; margin-right: 250px;" class="alert alert-success" role="alert">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <h4>Sukses!</h4>
+            <?php echo $this->session->flashdata('success'); ?>
+        </div>
+    <?php }; ?>
+    <!-- End validasi -->
+
         <div class="row">
 
             <div style="margin-left: 250px; margin-right: 250px;">
 
                 <h2 class="title-style-2">LOGIN FORM <span class="title-under"></span></h2>
 
-                <form action="php/mail.php" class="contact-form ajax-form">
+                <form action="<?= base_url('User/login') ?>" method="post" class="contact-form">
 
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Name*" required>
+                    <div style="margin-bottom: 15px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="login-username" class="form-control" name="username" value="" placeholder="Username" type="text" required>                                        
                     </div>
-
-                        <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="E-mail*" required>
-                    </div>
-
-                    <div class="form-group alerts">
-                    
-                        <div class="alert alert-success" role="alert">
-                            
-                        </div>
-
-                        <div class="alert alert-danger" role="alert">
-                            
-                        </div>
                         
-                    </div>	
+                    <div style="margin-bottom: 10px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="login-password" class="form-control" name="password" placeholder="Password" type="password" required>
+                    </div>
+
+                    
                     <p>
                         <b>Belum punya akun?</b> Klik <b><a href="<?= base_url('User/register') ?>">disini</a></b> untuk melakukan pendaftaran dan menikmati fitur dari Travelen.
                     </p>
