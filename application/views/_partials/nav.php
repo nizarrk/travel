@@ -49,7 +49,9 @@
 
                 </button>
                 
-                <a class="navbar-brand" href="index.html"><img src="<?= base_url('assets/images/sadaka-logo.png')?>" alt=""></a>
+                <a class="navbar-brand" href="<?= base_url('') ?>">
+                    <img src="<?= base_url('assets/images/travelen-logo.png')?>" style="width:150px; margin-top: -10px;" alt="">
+                </a>
                 
             </div>
 

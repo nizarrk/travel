@@ -59,9 +59,9 @@
 
                     <div class="cause">
 
-                        <img src="<?=base_url('assets/images/user.jpg')?>" alt="" class="cause-img">
+                        <img src="<?=base_url('assets/images/pembayaran.jpg')?>" alt="" class="cause-img">
 
-                        <h4 class="cause-title"><a href="<?=base_url('Admin/user')?>">PENGGUNA</a></h4>
+                        <h4 class="cause-title"><a href="<?=base_url('Admin/booking/pembayaran')?>">PEMBAYARAN</a></h4>
                         <div class="cause-details">
                         Atur dan lihat daftar pengguna travel.
                         </div>

@@ -41,7 +41,7 @@ class KendaraanModel extends CI_Model
     }
 
     public function getAll() {
-        return $this->db->get($this->_table)->result();
+        return $this->db->query("SELECT * FROM kendaraan a JOIN kategori b ON a.id_kategori = b.id_kategori");
     }
     
     public function getById($id) {

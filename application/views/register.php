@@ -37,44 +37,51 @@
 
                     <div class="form-group">
                         <label for="nama">Nama</label>
-                        <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" name="nama" class="form-control" placeholder="Nama*" required>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('nama') ?>
+                        <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>" type="text" name="nama" class="form-control" placeholder="Nama*" value="<?=set_value('nama')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('nama') ?></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control <?php echo form_error('username') ? 'is-invalid':'' ?>" type="text" name="username" class="form-control" placeholder="username*" value="<?=set_value('username')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('username') ?></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>" type="text" name="alamat" class="form-control" placeholder="Alamat*" required>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('alamat') ?>
+                        <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>" type="text" name="alamat" class="form-control" placeholder="Alamat*" value="<?=set_value('alamat')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('alamat') ?></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="telp">No. HP</label>
-                        <input class="form-control <?php echo form_error('telp') ? 'is-invalid':'' ?>" type="text" name="telp" class="form-control" placeholder="No. HP*" required>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('telp') ?>
+                        <input class="form-control <?php echo form_error('telp') ? 'is-invalid':'' ?>" type="text" name="telp" class="form-control" placeholder="No. HP*" value="<?=set_value('telp')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('telp') ?></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>" type="email" name="email" class="form-control" placeholder="Email*" required>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('email') ?>
+                        <input class="form-control <?php echo form_error('email') ? 'is-invalid':'' ?>" type="email" name="email" class="form-control" placeholder="Email*" value="<?=set_value('email')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('email') ?></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>" type="password" name="password" class="form-control" placeholder="Password*" required>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('password') ?>
+                        <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>" type="password" name="password" class="form-control" placeholder="Password*" value="<?=set_value('password')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('password') ?></small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="konfirm">Konfirmasi Password</label>
-                        <input class="form-control <?php echo form_error('konfirm') ? 'is-invalid':'' ?>" type="password" name="konfirm" class="form-control" placeholder="Konfirmasi Password*" required>
-                        <div class="invalid-feedback">
-                            <?php echo form_error('konfirm') ?>
+                        <input class="form-control <?php echo form_error('konfirm') ? 'is-invalid':'' ?>" type="password" name="konfirm" class="form-control" placeholder="Konfirmasi Password*" value="<?=set_value('konfirm')?>" required>
+                        <div class="invalid-feedback" style="color:red">
+                            <small><?php echo form_error('konfirm') ?></small>
                         </div>
                     </div>
 

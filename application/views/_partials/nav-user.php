@@ -9,7 +9,6 @@
                             <li> <i class="fa fa-envelope"></i> <a href="mailto:contact@sadaka.org">contact@sadaka.org</a> </li>
                         </ul> <!-- /.header-contact  -->
                     </div>
-                    
                     <div class="col-sm-6 col-xs-12 text-right">
                         <ul class="list-unstyled list-inline header-social">
                             <li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
@@ -22,7 +21,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="navbar-main">
             <div class="container">
                 <div class="navbar-header">
@@ -39,23 +38,17 @@
                 
                 <div id="navbar" class="navbar-collapse collapse pull-right">
                     <ul class="nav navbar-nav">
-                        <li><a class="<?= $this->uri->segment(2) == 'admin' ? 'is-active': '' ?>" href="<?= base_url('Dashboard/admin') ?>">HOME</a></li>
-                        <li class="has-child <?= $this->uri->segment(1) == 'Admin' ? 'is-active': '' ?>"><a href="#">MANAGE</a>
-                            <ul class="submenu">
-                                <li class="submenu-item"><a href="<?=base_url('Admin/Kota')?>">Kota </a></li>
-                                <li class="submenu-item"><a href="<?=base_url('Admin/Kendaraan')?>">Kendaraan </a></li>
-                                <li class="submenu-item"><a href="<?=base_url('Admin/Booking')?>">Booking </a></li>
-                                <li class="submenu-item"><a href="<?=base_url('Admin/Booking/pembayaran')?>">Pembayaran </a></li>
-                            </ul>
-                        </li>
-                        
+                        <li><a class="<?= $this->uri->segment(1) == '' ? 'is-active': '' ?>" href="<?= base_url('') ?>">HOME</a></li>
+                        <li><a class="<?= $this->uri->segment(1) == 'About' ? 'is-active': '' ?>" href="<?= base_url('About') ?>">ABOUT</a></li>
+                        <li><a class="<?= $this->uri->segment(1) == 'Contact' ? 'is-active': '' ?>" href="<?= base_url('Contact') ?>">CONTACT</a></li>
+
                         <li class="dropdown text-success" >
                             <a href="#" class="notification" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-bell" style="color: white;"></span>
                                 <span class="badge badge-danger" id="load_row"><?php if ($countnotif > 0) echo $countnotif?></span>
                             </a>
                             
-                            <ul class="dropdown-menu" role="menu" id="load_data" style="margin-left: -150px;">
+                            <ul class="dropdown-menu" role="menu" id="load_data" style="margin-left: -200px;">
                             <?php
                             if (empty($notif)) { ?>
                                 <li>Tidak Ada Notifikasi Baru</li>
@@ -64,7 +57,7 @@
                                 foreach ($notif as $row) { 
                                     if ($row->tipe_notifikasi == "Booking") { ?>
                                         <li>
-                                            <a href="#" onclick="updateNotifAdmin(<?=$row->id_notifikasi?>, 'Booking')">
+                                            <a href="#" onclick="updateNotifUser(<?=$row->id_notifikasi?>)">
                                                 <span><?=$row->desk_notifikasi?></span>
                                                 <br>
                                                 <small><?=time_since(strtotime($row->tgl_notifikasi))?></small>
@@ -75,7 +68,7 @@
                                         </li>
                                     <?php } else if ($row->tipe_notifikasi == "Pembayaran") { ?>
                                         <li>
-                                            <a href="#" onclick="updateNotifAdmin(<?=$row->id_notifikasi?>, 'Pembayaran')">
+                                            <a href="#" onclick="updateNotifUser(<?=$row->id_notifikasi?>)">
                                                 <span><?=$row->desk_notifikasi?></span>
                                                 <br>
                                                 <small><?=time_since(strtotime($row->tgl_notifikasi))?></small>
@@ -95,6 +88,8 @@
                                 <span class="glyphicon glyphicon-user" style="color: white;"></span>
                             </a>
                             <ul class="submenu">
+                                <li class="submenu-item"><a href="<?=base_url('User/profile')?>">Profile </a></li>
+                                <li class="submenu-item"><a href="<?=base_url('Jadwal/history')?>">History </a></li>
                                 <li class="submenu-item"><a href="<?=base_url('User/logout')?>">Logout </a></li>
                             </ul>
                         </li>

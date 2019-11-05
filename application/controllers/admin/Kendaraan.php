@@ -8,6 +8,15 @@ class Kendaraan extends CI_Controller {
         parent::__construct();
         $this->load->model("KategoriModel");
         $this->load->model("KendaraanModel");
+        $this->load->model("NotifikasiModel");
+        $this->load->helper('time');
+
+        $this->NotifikasiModel->deleteOldNotif();
+
+        $data['countnotif'] = $this->NotifikasiModel->notifCountAdmin();
+        $data['notif'] = $this->NotifikasiModel->getNotifAdmin();
+        
+        $this->load->vars($data);
     }
 
 	public function index() {

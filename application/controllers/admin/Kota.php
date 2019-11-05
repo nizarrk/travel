@@ -7,6 +7,15 @@ class Kota extends CI_Controller {
     {
         parent::__construct();
         $this->load->model("KotaModel");
+        $this->load->model("NotifikasiModel");
+        $this->load->helper('time');
+
+        $this->NotifikasiModel->deleteOldNotif();
+
+        $data['countnotif'] = $this->NotifikasiModel->notifCountAdmin();
+        $data['notif'] = $this->NotifikasiModel->getNotifAdmin();
+        
+        $this->load->vars($data);
     }
 
 	public function index() {

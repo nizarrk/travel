@@ -10,6 +10,9 @@
     <!-- Bootsrap -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css')?>">
 
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap-datepicker3.min.css')?>">
+
     <!-- Font awesome -->
     <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome.min.css')?>">
 
@@ -21,6 +24,18 @@
     
     <!-- Modernizr -->
     <script src="<?= base_url('assets/js/modernizr-2.6.2.min.js')?>"></script>
+
+    <style>
+        .notification .badge {
+            position: absolute;
+            top: 10px;
+            right: -5px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            background-color: #E64646;
+            color: white;
+        }
+    </style>
 
 
 </head>

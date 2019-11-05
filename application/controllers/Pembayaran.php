@@ -1,10 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About extends CI_Controller {
+class Pembayaran extends CI_Controller {
 
-	public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
+        $this->load->model("PembayaranModel");
         $this->load->model("NotifikasiModel");
         $this->load->helper('time');
 
@@ -18,6 +20,16 @@ class About extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('about');
-	}
+        if ($this->session->userdata('id_user')) {
+            $pembayaran = $this->PembayaranModel;
+
+            $pembayaran->create();
+            redirect('Jadwal/history');
+            
+        } else {
+            $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');
+            redirect('User');
+        }
+    }
+
 }

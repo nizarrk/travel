@@ -71,143 +71,114 @@
 
 <!-- Add Modal -->
 <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title" id="donateModalLabel">Tambah Kota</h4>
-    </div>
-    <div class="modal-body">
-
-        <form class="form-donation" method="post" action="<?=base_url('admin/Kota/add')?>">
-
-            <div class="row">
-
-                <div class="form-group col-md-12 ">
-                    <label for="nama">Nama Kota</label>
-                    <input type="text" name="nama" class="form-control" placeholder="Nama Kota">
-                </div>
-
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="donateModalLabel">Tambah Kota</h4>
             </div>
-
-            <div class="row">
-
-                <div class="form-group col-md-12 ">
-                    <label for="harga">Harga</label>
-                    <input type="text" name="harga" class="form-control" placeholder="Harga">
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="form-group col-md-12">
-                    <button type="submit" class="btn btn-primary pull-right" >Tambah</button>
-                </div>
-
-            </div>
+            <div class="modal-body">
+                <form class="form-donation" method="post" action="<?=base_url('admin/Kota/add')?>">
                 
-        </form>
-      
+                <div class="row">
+                    <div class="form-group col-md-12 ">
+                        <label for="nama">Nama Kota</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Nama Kota">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-md-12 ">
+                        <label for="harga">Harga</label>
+                        <input type="text" name="harga" class="form-control" placeholder="Harga">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" >Tambah</button>
+                    </div>
+                </div>
+                
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
 </div> <!-- /.modal -->
 
 <!-- Edit Modal -->
 <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title" id="donateModalLabel">Edit Kota</h4>
-    </div>
-    <div class="modal-body">
-
-        <form class="form-donation" method="post" action="<?=base_url('admin/Kota/edit')?>">
-
-        <div class="row">
-
-                <div class="form-group col-md-12 ">
-                    <input type="hidden" name="id" id="idkota" class="form-control" placeholder="Nama Kota">
-                </div>
-
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="donateModalLabel">Edit Kota</h4>
             </div>
-
-            <div class="row">
-
-                <div class="form-group col-md-12 ">
-                    <label for="nama">Nama Kota</label>
-                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Kota">
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="form-group col-md-12 ">
-                    <label for="harga">Harga</label>
-                    <input type="text" name="harga" id="harga" class="form-control" placeholder="Harga">
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="form-group col-md-12">
-                    <button type="submit" class="btn btn-primary pull-right" >Edit</button>
-                </div>
-
-            </div>
+            <div class="modal-body">
+                <form class="form-donation" method="post" action="<?=base_url('admin/Kota/edit')?>">
                 
-        </form>
-      
-    </div>
-  </div>
-</div>
+                <div class="row">
+                    <div class="form-group col-md-12 ">
+                        <input type="hidden" name="id" id="idkota" class="form-control" placeholder="Nama Kota">
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="form-group col-md-12 ">
+                        <label for="nama">Nama Kota</label>
+                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Kota">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12 ">
+                        <label for="harga">Harga</label>
+                        <input type="text" name="harga" id="harga" class="form-control" placeholder="Harga">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" >Edit</button>
+                    </div>
+                </div>
+                
+                </form>
+            </div>
+        </div>
+    </div>
 </div> <!-- /.modal -->
 
 <!-- Delete Modal -->
 <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-hidden="true">
-
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="donateModalLabel">Hapus Kota</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="donateModalLabel">Hapus Kota</h4>
             </div>
             <div class="modal-body">
                 <p id="text"></p>
-
+                
                 <form class="form-donation" method="post" action="<?=base_url('admin/Kota/delete')?>">
 
-                    <div class="row">
-
-                        <div class="form-group col-md-12 ">
-                            <input type="hidden" name="id" id="iddelete" class="form-control">
-                        </div>
-
+                <div class="row">
+                    <div class="form-group col-md-12 ">
+                        <input type="hidden" name="id" id="iddelete" class="form-control">
                     </div>
-
-                    <div class="row">
-
-                        <div class="form-group col-md-12">
-                            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Tidak</button>
-                            <button style="margin-right: 3px;" type="submit" class="btn btn-warning pull-right" >Ya</button>
-                        </div>
-
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Tidak</button>
+                        <button style="margin-right: 3px;" type="submit" class="btn btn-warning pull-right" >Ya</button>
                     </div>
+                </div>
                         
                 </form>
-            
             </div>
         </div>
     </div>
-
 </div> <!-- /.modal -->
 
 <?php $this->load->view('_partials/footer.php'); ?>

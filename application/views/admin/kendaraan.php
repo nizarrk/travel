@@ -113,11 +113,11 @@
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($vehicles as $vehicle) {
+                        foreach ($vehicles->result() as $vehicle) {
                         ?>
                     <tr>
                         <th scope="row"><?= $no ?></th>
-                        <td><?= $vehicle->id_kategori ?></td>
+                        <td><?= $vehicle->nama_kategori ?></td>
                         <td><?= $vehicle->nama_kendaraan ?></td>
                         <td><?= $vehicle->warna_kendaraan ?></td>
                         <td><?= $vehicle->plat_kendaraan ?></td>
@@ -306,7 +306,7 @@
 
                 <div class="form-group col-md-12 ">
                     <label for="kategori">Kategori</label>
-                    <select class="custom-select" id="kategori" name="kategori">
+                    <select class="form-control" id="kategori" name="kategori">
                         <option selected disabled>Choose...</option>
                         <?php foreach ($categories as $category) { ?>
                         <option value="<?=$category->id_kategori?>"><?=$category->nama_kategori?></option>
@@ -402,7 +402,7 @@
 
             <div class="form-group col-md-12 ">
                 <label for="kategori">Kategori</label>
-                <select class="custom-select" id="kategoriedit" name="kategori">
+                <select class="form-control" id="kategoriedit" name="kategori">
                     <option selected disabled>Choose...</option>
                     <?php foreach ($categories as $category) { ?>
                     <option value="<?=$category->id_kategori?>"><?=$category->nama_kategori?></option>
@@ -514,13 +514,13 @@
             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
 
             // Isi nilai pada field
-            $(this).find('#idkendaraan').attr("value", div.data('id'));
-            $(this).find('#kategoriedit').val(div.data('kategori'));
-            $(this).find('#namakendaraan').attr("value", div.data('nama'));
-            $(this).find('#warna').attr("value", div.data('warna'));
-            $(this).find('#plat').attr("value", div.data('plat'));
-            $(this).find('#penumpang').attr("value", div.data('penumpang'));
-            $(this).find('#harga').attr("value", div.data('harga'));
+            $('#idkendaraan').attr("value", div.data('id'));
+            $('#kategoriedit').val(div.data('kategori'));
+            $('#namakendaraan').attr("value", div.data('nama'));
+            $('#warna').attr("value", div.data('warna'));
+            $('#plat').attr("value", div.data('plat'));
+            $('#penumpang').attr("value", div.data('penumpang'));
+            $('#harga').attr("value", div.data('harga'));
         });
     });
 
