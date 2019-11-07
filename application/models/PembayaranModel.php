@@ -43,11 +43,11 @@ class PembayaranModel extends CI_Model
 
         //update status tabel jadwal
         $this->load->model("JadwalModel");
-        $this->JadwalModel->updateStatus($this->id_jadwal, $this->status_pembayaran);
+        $this->JadwalModel->updateStatus($this->id_jadwal, $this->status_pembayaran, $this->status_pembayaran);
 
         //insert tabel notifikasi
         $this->load->model("NotifikasiModel");
-        $this->NotifikasiModel->create($this->kode_pembayaran, "Pembayaran");
+        $this->NotifikasiModel->create($this->kode_pembayaran, "Pembayaran", $this->status_pembayaran);
         
         //insert pembayaran
         $this->db->insert($this->_table, $this);

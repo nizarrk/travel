@@ -29,6 +29,7 @@
                 <th>#</th>
                 <th>Kode Jadwal</th>
                 <th>Kode Pembayaran</th>
+                <th>Nama user</th>
                 <th>No. Rekening User</th>
                 <th>Nama Rekening User</th>
                 <th>Nominal Pembayaran</th>
@@ -44,12 +45,25 @@
             if (empty($payments)) {
                 echo "<th></th><th></th><th></th><th></th><th></th><th> Tidak Ada Data </th><th></th><th></th><th></th><th></th>";
             } else {
-                foreach ($payments as $payment) {
+                foreach ($payments as $payment) {                
             ?>
         <tr>
             <th scope="row"><?= $no ?></th>
             <td><?= $payment->kode_jadwal ?></td>
             <td><?= $payment->kode_pembayaran ?></td>
+            <td>
+                <a href="#" 
+                   data-user="<?=$payment->id_user?>"
+                   data-nama="<?=$payment->nama_user?>"
+                   data-username="<?=$payment->username_user?>"
+                   data-alamat="<?=$payment->alamat_user?>"
+                   data-telp="<?=$payment->telp_user?>"
+                   data-email="<?=$payment->email_user?>"
+                   data-foto="<?=$payment->foto_user?>"
+                   data-toggle="modal" 
+                   data-target="#userModal"><u><?= $payment->nama_user ?></u>
+                </a>
+            </td>
             <td><?= $payment->no_rek_user ?></td>
             <td><?= $payment->nama_rek_user ?></td>
             <td>Rp. <?= $payment->nominal_pembayaran ?></td>
@@ -189,6 +203,67 @@
 
 </div> <!-- /.modal -->
 
+<!-- Detail User Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detail User</h4>
+            </div>
+            <div class="modal-body">
+            <div class="row">
+                <div class="picture">
+                    <div class="col-md-3 col-lg-3">
+                        <figure>
+                            <a href="#" itemprop="contentUrl" data-size="150x150" data-index="0">
+                                <img class="img-responsive" src="" id="foto">
+                            </a>
+                        <figure>
+                    </div>
+                </div>
+                <div class=" col-md-9 col-lg-9 "> 
+                    <table id="table_id" class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <td>Nama</td>
+                                <td>:</td>
+                                <td id="nama"></td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>:</td>
+                                <td id="username"></td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>:</td>
+                                <td id="alamat"></td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td>
+                                    <a href="mailto:"  id="email"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Telepon</td>
+                                <td>:</td>
+                                <td  id="telp"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div> <!-- /.modal -->
+
 <?php $this->load->view('_partials/footer.php'); ?>
 <?php $this->load->view('_partials/js.php'); ?>
 
@@ -221,6 +296,21 @@
             $(this).find('#kode').val(div.data('kode'));
             $(this).find('#iduser').val(div.data('user'));
             $(this).find('#kodebooking').val(div.data('booking'));
+        });
+    });
+
+    $(document).ready(function() {
+        // Untuk sunting
+        $("#userModal").on("show.bs.modal", function (event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+
+            // Isi nilai pada field
+            $('#foto').attr("src", "<?=base_url('upload/user/')?>" + div.data('foto'));
+            $('#nama').text(div.data('nama'));
+            $('#username').text(div.data('username'));
+            $('#alamat').text(div.data('alamat'));
+            $('#email').text(div.data('email'));
+            $('#telp').text(div.data('telp'));
         });
     });
 </script>

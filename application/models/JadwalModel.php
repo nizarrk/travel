@@ -10,6 +10,7 @@ class JadwalModel extends CI_Model
             $id_kota,
             $id_user,
             $tgl_berangkat,
+            //$alamat_penjemputan,
             $tgl_pulang,
             $total_biaya,
             $status_jadwal;
@@ -100,7 +101,9 @@ class JadwalModel extends CI_Model
                     BETWEEN 
                         '".$tgl1."' 
                     AND 
-                        '".$tgl2."')"
+                        '".$tgl2."' 
+                    AND
+                        status_jadwal != 'Dibatalkan')"
                 )->result();
     }
     
@@ -116,13 +119,14 @@ class JadwalModel extends CI_Model
         $this->id_user = $post["user"];
         $this->tgl_berangkat = $post["tgl1"];
         $this->tgl_pulang = $post["tgl2"];
+        //$this->tgl_pulang = $post["penjemputan"];
         $this->total_biaya = $post["total"];
         $this->status_jadwal = "Menunggu Pembayaran";
         $this->db->insert($this->_table, $this);
 
         //insert tabel notifikasi
         $this->load->model("NotifikasiModel");
-        $this->NotifikasiModel->create($this->kode_jadwal, "Booking");
+        $this->NotifikasiModel->create($this->kode_jadwal, "Booking", $this->status_jadwal);
     }
 
     //admin

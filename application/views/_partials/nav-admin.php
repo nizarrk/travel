@@ -85,7 +85,8 @@
                                             </a>
                                         </li>
                                         <?php } ?> 
-                                    <?php } ?>                         
+                                    <?php } ?>
+                                    <a href="<?=base_url('Notifikasi')?>">Lihat  Semua</a>                         
                                 <?php } ?>
                             </ul>
                         </li>

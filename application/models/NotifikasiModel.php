@@ -29,7 +29,7 @@ class NotifikasiModel extends CI_Model
     function getNotifAdmin() {
         $this->db->where('id_user', 1);
         $this->db->order_by('id_notifikasi', 'desc');
-        $this->db->limit(10);
+        $this->db->limit(5);
         $query = $this->db->get($this->_table)->result();
         
         return $query;
@@ -38,7 +38,22 @@ class NotifikasiModel extends CI_Model
     function getNotifUser($id) {
         $this->db->where('id_user', $id);
         $this->db->order_by('id_notifikasi', 'desc');
-        $this->db->limit(10);
+        $this->db->limit(5);
+        $query = $this->db->get($this->_table)->result();
+        return $query;
+    }
+
+    function getNotifAdminAll() {
+        $this->db->where('id_user', 1);
+        $this->db->order_by('id_notifikasi', 'desc');
+        $query = $this->db->get($this->_table)->result();
+        
+        return $query;
+    }
+
+    function getNotifUserAll($id) {
+        $this->db->where('id_user', $id);
+        $this->db->order_by('id_notifikasi', 'desc');
         $query = $this->db->get($this->_table)->result();
         return $query;
     }

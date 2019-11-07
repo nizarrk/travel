@@ -32,7 +32,7 @@
                 url: "<?=base_url('Notifikasi/editStatus')?>/" + id,
                 type: "POST",
                 dataType: "JSON",
-                success: function(data) {                  
+                success: function(data) {                                      
                     if (tipe == 'Booking') {
                         location.href = "<?=base_url('admin/Booking')?>"
                     } else if (tipe == 'Pembayaran') {

@@ -133,6 +133,12 @@
                 </div>
             </div>
 
+            <!-- <div class="row">
+                <div class="form-group col-md-12 ">
+                    <input type="text" class="form-control" name="lokasi" placeholder="Alamat Penjemputan*" required>
+                </div>
+            </div> -->
+
             <div class="row">
                 <ul>
                     <li><b> Kota Tujuan: </b><span id="kotatujuan"></span></li>

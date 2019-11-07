@@ -49,7 +49,7 @@
                         <div class="col-md-3 col-lg-3">
                             <figure>
                                 <a href="<?=base_url()?>upload/user/<?= $user->foto_user; ?>" itemprop="contentUrl" data-size="480x480" data-index="0">
-                                    <img class="img-responsive" src="<?=base_url()?>upload//user/<?= $user->foto_user; ?>">
+                                    <img class="img-responsive" src="<?=base_url()?>upload/user/<?= $user->foto_user; ?>">
                                 </a>
                             <figure>
                         </div>
