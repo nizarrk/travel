@@ -28,7 +28,8 @@ class Dashboard extends CI_Controller {
     
     public function admin() {
         if ($this->session->userdata('id_user')) {
-            $this->load->view('admin/dashboard-admin');
+            $data['tittle'] = "Admin";
+            $this->load->view('admin/dashboard-admin', $data);
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');
             redirect('User');

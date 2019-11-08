@@ -15,7 +15,7 @@
 
     <div class="row">
         <center>
-            <p>Terima Kasih Telah melakukan booking menggunakan layanan Travelen. Anda diharapkan segera melakukan transaksi (Maksimal 2 jam setelah booking) untuk validasi booking anda.</p><br>
+            <p>Terima Kasih Telah melakukan booking menggunakan layanan Travelen. Anda diharapkan segera melakukan transaksi (Maksimal 2 jam setelah booking) untuk validasi booking anda. Anda bisa melihat tata cara pembayaran pada halaman <a href="<?=base_url('Help')?>"><u><b>Help</b></u></a>.</p><br>
             
         </center>
     </div>

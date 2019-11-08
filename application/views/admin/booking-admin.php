@@ -33,6 +33,7 @@
                 <th>Warna</th>
                 <th>Plat Nomor</th>
                 <th>Kota</th>
+                <th>Alamat Penjemputan</th>
                 <th>Tanggal</th>
                 <th>Tanggal Pesan</th>
                 <th>Total Biaya</th>
@@ -61,12 +62,14 @@
                    data-email="<?=$booking->email_user?>"
                    data-foto="<?=$booking->foto_user?>"
                    data-toggle="modal" 
-                   data-target="#userModal"><u><?= $booking->nama_user ?></u></a>
+                   data-target="#userModal"><u><?= $booking->nama_user ?></u>
+                </a>
             </td>
             <td><?= $booking->nama_kendaraan ?></td>
             <td><?= $booking->warna_kendaraan ?></td>
             <td><?= $booking->plat_kendaraan ?></td>
             <td><?= $booking->nama_kota ?></td>
+            <td><?= $booking->alamat_penjemputan ?></td>
             <td><?= date("d M Y", strtotime($booking->tgl_berangkat)) ?> - <?= date("d M Y", strtotime($booking->tgl_pulang)) ?></td>
             <td><?= date("d M Y H:i:s", strtotime($booking->tgl_pesan)) ?></td>
             <td>Rp. <?= $booking->total_biaya ?></td>

@@ -22,7 +22,8 @@ class User extends CI_Controller {
         if ($this->session->userdata('nama_user')) {
             redirect('Home');
         } else {
-            $this->load->view('login');
+            $data['tittle'] = "Login";
+            $this->load->view('login', $data);
         }
     }
 
@@ -99,7 +100,8 @@ class User extends CI_Controller {
     }
     
     public function register() {
-        $this->load->view('register');
+        $data['tittle'] = "Register";
+        $this->load->view('register', $data);
     }
 
     public function add() {
@@ -209,6 +211,7 @@ class User extends CI_Controller {
 
     public function profile() {
         if ($this->session->userdata('id_user')) {
+            $data['tittle'] = "Profile";
             $data["user"] = $this->UserModel->getById($this->session->userdata('id_user'));
             $this->load->view('user/profile', $data);
             

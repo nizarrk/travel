@@ -127,17 +127,18 @@
     <div class="modal-body">
         <form class="form-donation" action="<?=base_url('Jadwal/booking')?>" method="post">
             <h3 class="title-style-1 text-center">Detail Booking<span class="title-under"></span>  </h3>
+
+            <div class="row">
+                <div class="form-group col-md-12 ">
+                    <input type="text" class="form-control" name="penjemputan" placeholder="Alamat Penjemputan*" required>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="form-group col-md-12 ">
                     <p>Berikut adalah detail dari booking anda:</p>
                 </div>
             </div>
-
-            <!-- <div class="row">
-                <div class="form-group col-md-12 ">
-                    <input type="text" class="form-control" name="lokasi" placeholder="Alamat Penjemputan*" required>
-                </div>
-            </div> -->
 
             <div class="row">
                 <ul>

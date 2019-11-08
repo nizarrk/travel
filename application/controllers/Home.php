@@ -20,6 +20,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+        $data['tittle'] = "Home";
 		$data["cities"] = $this->KotaModel->getAll();
 		$this->load->view('home', $data);
 	}

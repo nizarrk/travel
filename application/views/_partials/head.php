@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>SADAKA | Charity / Non-profit responsive Bootstrap HTML5 template</title>
+    <title>Travelen | <?=$tittle?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->

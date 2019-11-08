@@ -33,6 +33,7 @@ class Jadwal extends CI_Controller {
         $date2=date_create($tgl2);
         $diff=date_diff($date1,$date2)->format("%a");
 
+        $data['tittle'] = "Jadwal";
         $data["schedules"] = $this->JadwalModel->check($tgl1, $tgl2);
         $data["cities"] = $this->KotaModel->getAll();
         $data["post"] = [$id, $nama, $harga, $tgl1, $tgl2, $diff];
@@ -45,7 +46,8 @@ class Jadwal extends CI_Controller {
             $jadwal = $this->JadwalModel;
 
             $jadwal->create();
-            $this->load->view('_partials/sukses');
+            $data['tittle'] = "Success";
+            $this->load->view('_partials/sukses', $data);
             
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');
@@ -55,6 +57,7 @@ class Jadwal extends CI_Controller {
 
     public function history() {
         if ($this->session->userdata('id_user')) {
+            $data['tittle'] = "History";
             $data["histories"] = $this->JadwalModel->getAll();
             $this->load->view('user/history', $data);
             
@@ -69,7 +72,8 @@ class Jadwal extends CI_Controller {
             $pembayaran = $this->PembayaranModel;
 
             $pembayaran->create();
-            $this->load->view('_partials/sukses');
+            $data['tittle'] = "Success";
+            $this->load->view('_partials/sukses', $data);
             
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');

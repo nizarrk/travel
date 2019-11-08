@@ -40,7 +40,7 @@
                     <ul class="nav navbar-nav">
                         <li><a class="<?= $this->uri->segment(1) == '' ? 'is-active': '' ?>" href="<?= base_url('') ?>">HOME</a></li>
                         <li><a class="<?= $this->uri->segment(1) == 'About' ? 'is-active': '' ?>" href="<?= base_url('About') ?>">ABOUT</a></li>
-                        <!-- <li><a class="<?= $this->uri->segment(1) == 'Contact' ? 'is-active': '' ?>" href="<?= base_url('Contact') ?>">CONTACT</a></li> -->
+                        <li><a class="<?= $this->uri->segment(1) == 'Help' ? 'is-active': '' ?>" href="<?= base_url('Help') ?>">HELP</a></li>
 
                         <li class="dropdown text-success" >
                             <a href="#" class="notification" data-toggle="dropdown">

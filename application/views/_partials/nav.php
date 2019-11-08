@@ -62,7 +62,7 @@
 
                 <li><a class="<?= $this->uri->segment(1) == '' ? 'is-active': '' ?>" href="<?= base_url('') ?>">HOME</a></li>
                 <li><a class="<?= $this->uri->segment(1) == 'About' ? 'is-active': '' ?>" href="<?= base_url('About') ?>">ABOUT</a></li>
-                <!-- <li><a class="<?= $this->uri->segment(1) == 'Contact' ? 'is-active': '' ?>" href="<?= base_url('Contact') ?>">CONTACT</a></li> -->
+                <li><a class="<?= $this->uri->segment(1) == 'Help' ? 'is-active': '' ?>" href="<?= base_url('Help') ?>">HELP</a></li>
                 <li><a class="<?= $this->uri->segment(1) == 'User' ? 'is-active': '' ?>"href="<?= base_url('User') ?>">LOGIN</a></li>
 
                 </ul>

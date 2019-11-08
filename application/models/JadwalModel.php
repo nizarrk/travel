@@ -10,7 +10,7 @@ class JadwalModel extends CI_Model
             $id_kota,
             $id_user,
             $tgl_berangkat,
-            //$alamat_penjemputan,
+            $alamat_penjemputan,
             $tgl_pulang,
             $total_biaya,
             $status_jadwal;
@@ -119,7 +119,7 @@ class JadwalModel extends CI_Model
         $this->id_user = $post["user"];
         $this->tgl_berangkat = $post["tgl1"];
         $this->tgl_pulang = $post["tgl2"];
-        //$this->tgl_pulang = $post["penjemputan"];
+        $this->alamat_penjemputan = $post["penjemputan"];
         $this->total_biaya = $post["total"];
         $this->status_jadwal = "Menunggu Pembayaran";
         $this->db->insert($this->_table, $this);
