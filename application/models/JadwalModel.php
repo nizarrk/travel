@@ -42,7 +42,10 @@ class JadwalModel extends CI_Model
                 ON 
                     a.id_user = d.id_user 
                 AND 
-                    a.id_user = '". $this->session->userdata('id_user') ."'")->result();
+                    a.id_user = '". $this->session->userdata('id_user') ."'
+                ORDER BY 
+                    a.id_jadwal 
+                DESC")->result();
     }
 
     public function getAllByAdmin() {
@@ -62,7 +65,10 @@ class JadwalModel extends CI_Model
                 JOIN 
                     user d 
                 ON 
-                    a.id_user = d.id_user")->result();
+                    a.id_user = d.id_user 
+                ORDER BY 
+                    a.id_jadwal 
+                DESC")->result();
     }
 
     public function getAllPembayaranByAdmin() {
@@ -78,7 +84,10 @@ class JadwalModel extends CI_Model
                 JOIN 
                     user c 
                 ON 
-                    a.id_user = c.id_user")->result();
+                    a.id_user = c.id_user
+                ORDER BY 
+                    a.id_pembayaran 
+                DESC")->result();
     }
 
     public function check($tgl1, $tgl2) {
@@ -127,6 +136,22 @@ class JadwalModel extends CI_Model
         //insert tabel notifikasi
         $this->load->model("NotifikasiModel");
         $this->NotifikasiModel->create($this->kode_jadwal, "Booking", $this->status_jadwal);
+    }
+
+    public function createOffline($idUser) {
+        $post = $this->input->post();
+        $this->kode_jadwal = $this->uniqueID('kode_jadwal', 'TRV-', 5);
+        $this->id_kendaraan = $post["kendaraan"];
+        $this->id_kota = $post["kota"];
+        $this->id_user = $idUser;
+        $this->tgl_berangkat = $post["tgl1"];
+        $this->tgl_pulang = $post["tgl2"];
+        $this->alamat_penjemputan = $post["penjemputan"];
+        $this->total_biaya = $post["nominal"];
+        $this->status_jadwal = "Selesai";
+        $this->db->insert($this->_table, $this);
+
+        return $this->db->insert_id();
     }
 
     //admin

@@ -29,6 +29,11 @@ class Jadwal extends CI_Controller {
         $tgl1 = $this->input->post('tgl1');
         $tgl2 = $this->input->post('tgl2');
 
+        if ($tgl1 == null || $tgl2 == null) {
+            $tgl1 = date('Y-m-d');
+            $tgl2 = date('Y-m-d');
+        }
+
         $date1=date_create($tgl1);
         $date2=date_create($tgl2);
         $diff=date_diff($date1,$date2)->format("%a");
@@ -48,6 +53,31 @@ class Jadwal extends CI_Controller {
             $jadwal->create();
             $data['tittle'] = "Success";
             $this->load->view('_partials/sukses', $data);
+            
+        } else {
+            $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');
+            redirect('User');
+        }
+    }
+
+    public function bookingOffline() {
+        if ($this->session->userdata('is_admin') == 'yes') {
+            $this->load->model("UserModel");
+
+            //create new user
+            $user = $this->UserModel;
+            $idNewUser = $user->createOffline();
+            
+            //insert jadwal
+            $jadwal = $this->JadwalModel;
+            $idNewJadwal = $jadwal->createOffline($idNewUser);
+
+            //insert pembayaran
+            $pembayaran = $this->PembayaranModel;
+            $pembayaran->createOffline($idNewUser, $idNewJadwal);
+
+            $this->session->set_flashdata('success', 'Berhasil menambahkan booking!');
+            redirect('admin/Booking');
             
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');

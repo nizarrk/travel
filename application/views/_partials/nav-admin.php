@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?= base_url('') ?>">
+                    <a class="navbar-brand" href="<?= base_url('Dashboard/admin') ?>">
                         <img src="<?= base_url('assets/images/travelen-logo.png')?>" style="width:150px; margin-top: -10px;" alt="">
                     </a>
                 </div>

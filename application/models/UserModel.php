@@ -32,6 +32,20 @@ class UserModel extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
+    public function createOffline() {
+        $post = $this->input->post();
+        $this->nama_user = $post["nama"];
+        $this->alamat_user = $post["alamat"];
+        $this->telp_user = $post["telp"];
+        $this->db->insert($this->_table, array(
+            'nama_user' => $this->nama_user, 
+            'alamat_user' => $this->alamat_user, 
+            'telp_user' => $this->telp_user, 
+        ));
+
+        return $this->db->insert_id();
+    }
+
     public function checkUsername($username) {
         return $this->db->get_where($this->_table, ["username_user" => $username])->row();
     }
@@ -55,13 +69,13 @@ class UserModel extends CI_Model
         }
 
         $this->db->update($this->_table, array(
-                                        'nama_user' => $this->nama_user, 
-                                        'username_user' => $this->username_user, 
-                                        'alamat_user' => $this->alamat_user, 
-                                        'telp_user' => $this->telp_user, 
-                                        'email_user' => $this->email_user,
-                                        'foto_user' => $this->foto_user), 
-                                        array('id_user' => $this->session->userdata('id_user')));
+            'nama_user' => $this->nama_user, 
+            'username_user' => $this->username_user, 
+            'alamat_user' => $this->alamat_user, 
+            'telp_user' => $this->telp_user, 
+            'email_user' => $this->email_user,
+            'foto_user' => $this->foto_user), 
+            array('id_user' => $this->session->userdata('id_user')));
     }
 
     public function updatePassword() {

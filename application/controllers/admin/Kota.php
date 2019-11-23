@@ -21,6 +21,7 @@ class Kota extends CI_Controller {
 	public function index() {
         if ($this->session->userdata('id_user')) {
             $data["cities"] = $this->KotaModel->getAll();
+            $data['tittle'] = "Kota";
             $this->load->view('admin/kota', $data);
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');

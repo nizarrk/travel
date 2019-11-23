@@ -23,6 +23,7 @@ class Kendaraan extends CI_Controller {
         if ($this->session->userdata('id_user')) {
             $data["categories"] = $this->KategoriModel->getAll();
             $data["vehicles"] = $this->KendaraanModel->getAll();
+            $data['tittle'] = "Kendaraan";
             $this->load->view('admin/kendaraan', $data);
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');

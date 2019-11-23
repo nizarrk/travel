@@ -22,6 +22,7 @@ class Booking extends CI_Controller {
 	public function index() {
         if ($this->session->userdata('id_user')) {
             $data["bookings"] = $this->JadwalModel->getAllByAdmin();
+            $data['tittle'] = "Booking";
             $this->load->view('admin/booking-admin', $data);
         } else {
             $this->session->set_flashdata('fail', 'Anda harus melakukan login terlebih dahulu!');
@@ -32,6 +33,7 @@ class Booking extends CI_Controller {
     public function pembayaran() {
         if ($this->session->userdata('id_user')) {
             $data["payments"] = $this->JadwalModel->getAllPembayaranByAdmin();
+            $data['tittle'] = "Pembayaran";
             $this->load->view('admin/pembayaran-admin', $data);
 
         } else {

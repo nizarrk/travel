@@ -53,6 +53,20 @@ class PembayaranModel extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
+    public function createOffline($idUser, $idJadwal) {
+        $this->id_jadwal = $idJadwal;
+        $this->id_user = $idUser;
+        $this->kode_pembayaran = $this->uniqueID('kode_pembayaran', 'BYR-', 5);
+        $this->no_rek_user = 'Offline';
+        $this->nama_rek_user = 'Offline';
+        $this->nominal_pembayaran = $this->input->post('nominal');
+        $this->status_pembayaran = "Diterima";
+        $this->bukti_pembayaran = 'Offline';
+        
+        //insert pembayaran
+        $this->db->insert($this->_table, $this);
+    }
+
     public function updateStatus($id, $kode, $status, $user = 1) {
         $this->id_pembayaran = $id;
         $this->status_pembayaran = $status;

@@ -22,6 +22,8 @@
         </div>
     <?php }; ?>
     <!-- End validasi -->
+    <a href="<?=base_url('Jadwal')?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Tambah</a>
+    <br><br>
 
     <table class="table table-style-1">
         <thead>
@@ -236,9 +238,9 @@
             // Isi nilai pada field
             $('#foto').attr("src", "<?=base_url()?>upload/user/" + div.data('foto'));
             $('#nama').text(div.data('nama'));
-            $('#username').text(div.data('username'));
+            div.data('username') == '' ?  $('#username').text('User Offline') : $('#username').text(div.data('username'))
             $('#alamat').text(div.data('alamat'));
-            $('#email').text(div.data('email'));
+            div.data('email') == '' ?  $('#email').text('User Offline') : $('#email').text(div.data('email'))
             $('#telp').text(div.data('telp'));
         });
     });
