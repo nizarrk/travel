@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 08, 2019 at 08:45 AM
+-- Generation Time: Nov 23, 2019 at 09:17 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -56,7 +56,8 @@ INSERT INTO `jadwal` (`id_jadwal`, `kode_jadwal`, `id_kendaraan`, `id_kota`, `id
 (7, 'TRV-00007', 4, 2, 2, 'Depan RS Gatoel Jl. Brawijaya', '2019-11-13', '2019-11-15', '2019-11-08 06:37:03', 600000, 'Menunggu Pembayaran'),
 (8, 'TRV-00008', 4, 2, 2, 'Depan RS Gatoel Jl. Brawijaya', '2019-11-13', '2019-11-15', '2019-11-08 06:44:48', 600000, 'Menunggu Pembayaran'),
 (9, 'TRV-00009', 4, 2, 2, 'Depan RS Gatoel Jl. Brawijaya', '2019-11-13', '2019-11-15', '2019-11-08 06:45:10', 600000, 'Menunggu Pembayaran'),
-(10, 'TRV-00010', 5, 2, 3, 'Depan RS Gatoel Jl. Brawijaya', '2019-11-12', '2019-11-15', '2019-11-08 07:08:33', 700000, 'Selesai');
+(10, 'TRV-00010', 5, 2, 3, 'Depan RS Gatoel Jl. Brawijaya', '2019-11-12', '2019-11-15', '2019-11-08 07:08:33', 700000, 'Selesai'),
+(11, 'TRV-00011', 4, 2, 4, 'test offline', '2019-11-26', '2019-11-29', '2019-11-23 08:11:02', 850000, 'Selesai');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,8 @@ CREATE TABLE `pembayaran` (
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_jadwal`, `id_user`, `kode_pembayaran`, `no_rek_user`, `nama_rek_user`, `nominal_pembayaran`, `tgl_pembayaran`, `status_pembayaran`, `bukti_pembayaran`) VALUES
 (1, 2, 3, 'BYR-00001', '23324422', 'wahyu', 500000, '2019-11-06 14:31:10', 'Menunggu Konfirmasi', 'BYR-00001.png'),
 (2, 5, 2, 'BYR-00002', '2432', 'nrk', 60000, '2019-11-07 00:24:25', 'Menunggu Konfirmasi', 'BYR-00002.png'),
-(3, 10, 3, 'BYR-00003', '43534763234', 'Wahydie Edogawa', 500000, '2019-11-08 07:10:15', 'Diterima', 'BYR-00003.jpg');
+(3, 10, 3, 'BYR-00003', '43534763234', 'Wahydie Edogawa', 500000, '2019-11-08 07:10:15', 'Diterima', 'BYR-00003.jpg'),
+(4, 11, 4, 'BYR-00004', 'Offline', 'Offline', 850000, '2019-11-23 08:11:02', 'Diterima', 'Offline');
 
 -- --------------------------------------------------------
 
@@ -204,12 +206,12 @@ INSERT INTO `pembayaran` (`id_pembayaran`, `id_jadwal`, `id_user`, `kode_pembaya
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama_user` varchar(255) NOT NULL,
-  `username_user` varchar(255) NOT NULL,
+  `username_user` varchar(255) DEFAULT NULL,
   `alamat_user` varchar(255) NOT NULL,
   `telp_user` varchar(25) NOT NULL,
   `foto_user` varchar(25) NOT NULL DEFAULT 'default.jpg',
-  `email_user` varchar(255) NOT NULL,
-  `pass_user` varchar(255) NOT NULL,
+  `email_user` varchar(255) DEFAULT NULL,
+  `pass_user` varchar(255) DEFAULT NULL,
   `is_admin` varchar(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -221,7 +223,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nama_user`, `username_user`, `alamat_user`, `telp_user`, `foto_user`, `email_user`, `pass_user`, `is_admin`, `created_at`) VALUES
 (1, 'admin', 'admin', '-', '0', 'default.jpg', 'admin@admin.com', '0192023a7bbd73250516f069df18b500', 'yes', '2019-10-23 11:22:45'),
 (2, 'Nizarr', 'nizarrk', 'Malang', '098767786', '2.png', 'nizarkusworo@gmail.com', '22530df4713d6c0ac2630b5971c4fc2d', NULL, '2019-10-23 13:16:48'),
-(3, 'wahyudie', 'wahyu', 'bangil', '9798956', '3.png', 'wahyu@yahao.com', '25d55ad283aa400af464c76d713c07ad', NULL, '2019-11-06 13:00:01');
+(3, 'wahyudie', 'wahyu', 'bangil', '9798956', '3.png', 'wahyu@yahao.com', '25d55ad283aa400af464c76d713c07ad', NULL, '2019-11-06 13:00:01'),
+(4, 'test offline', NULL, 'test offline', '12345678', 'default.jpg', NULL, NULL, NULL, '2019-11-23 08:11:02');
 
 --
 -- Indexes for dumped tables
@@ -284,7 +287,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -314,13 +317,13 @@ ALTER TABLE `notifikasi`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
