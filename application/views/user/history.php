@@ -11,7 +11,7 @@
                 <th>Kendaraan</th>
                 <th>Warna</th>
                 <th>Plat Nomor</th>
-                <th>Kota</th>
+                <!-- <th>Kota</th> -->
                 <th>Tanggal</th>
                 <th>Total Biaya</th>
                 <th>Status</th>
@@ -32,9 +32,9 @@
             <td><?= $history->nama_kendaraan ?></td>
             <td><?= $history->warna_kendaraan ?></td>
             <td><?= $history->plat_kendaraan ?></td>
-            <td><?= $history->nama_kota ?></td>
+            <!-- <td><?= $history->nama_kota ?></td> -->
             <td><?= date("d M Y", strtotime($history->tgl_berangkat)) ?> - <?= date("d M Y", strtotime($history->tgl_pulang)) ?></td>
-            <td>Rp. <?= $history->total_biaya ?></td>
+            <td><?= rupiah($history->total_biaya) ?></td>
             <td>
                 <?php if ($history->status_jadwal == "Menunggu Pembayaran") { ?>
                     <span class="badge" style="background-color: #f5bc42;"><?= $history->status_jadwal ?></span>

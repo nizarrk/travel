@@ -5,7 +5,7 @@ echo "<h3>Selamat Datang, ".$this->session->userdata('nama_user')."</h3>";
 <div class="row">
     <div style="padding-top:30px" class="panel-body">
         <form action="<?=base_url('Jadwal')?>" method="post">
-            <div class="col-lg-4 col-md-4 col-sm-4">
+            <!-- <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="form-group">
                     <label for="kota">Kota Tujuan</label>
                     <input type="hidden" name="namakota" id="namakota">
@@ -17,7 +17,7 @@ echo "<h3>Selamat Datang, ".$this->session->userdata('nama_user')."</h3>";
                         <?php }; ?>
                     </select>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="form-group">
@@ -32,12 +32,10 @@ echo "<h3>Selamat Datang, ".$this->session->userdata('nama_user')."</h3>";
                     <input class="form-control" type="text" name="tgl2" id="tanggal2" placeholder="Tanggal Pulang" value="" required />
                 </div>
             </div>
-            <br>
-            <center>
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Cari Jadwal</button>
-                </div>
-            </center>
+
+            <div class="col-lg-4 col-md-4 col-sm-4" style="margin-top: 20px;">
+                <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Cari Jadwal</button>
+            </div>
         </form>
     </div>     
 </div><!--/row -->

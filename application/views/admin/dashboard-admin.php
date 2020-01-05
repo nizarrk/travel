@@ -5,11 +5,11 @@
 
         <div class="container">
 
-            <h2 class="title-style-1">Manage Travel<span class="title-under"></span></h2>
+            <h2 class="title-style-1">Manage Business<span class="title-under"></span></h2>
 
             <div class="row">
 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
 
                     <div class="cause">
 
@@ -22,9 +22,9 @@
 
                     </div> <!-- /.cause -->
                     
-                </div> 
+                <!-- </div>  -->
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
 
                     <div class="cause">
 
@@ -40,7 +40,7 @@
                 </div>
 
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
 
                     <div class="cause">
 
@@ -55,7 +55,7 @@
                     
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-sm-6">
 
                     <div class="cause">
 

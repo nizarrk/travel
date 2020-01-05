@@ -12,6 +12,7 @@ class Jadwal extends CI_Controller {
 
         $this->load->model("NotifikasiModel");
         $this->load->helper('time');
+        $this->load->helper('rupiah');
 
         $this->NotifikasiModel->deleteOldNotif();
 
@@ -40,7 +41,7 @@ class Jadwal extends CI_Controller {
 
         $data['tittle'] = "Jadwal";
         $data["schedules"] = $this->JadwalModel->check($tgl1, $tgl2);
-        $data["cities"] = $this->KotaModel->getAll();
+        // $data["cities"] = $this->KotaModel->getAll();
         $data["post"] = [$id, $nama, $harga, $tgl1, $tgl2, $diff];
 
         $this->load->view('booking', $data);

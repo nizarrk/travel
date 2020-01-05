@@ -14,7 +14,7 @@ if($this->session->userdata('nama_user')) {
     <div class="row">
         <div style="padding-top:30px" class="panel-body">
             <form action="<?=base_url('Jadwal')?>" method="post">
-                <div class="col-lg-3 col-md-3 col-sm-3">
+                <!-- <div class="col-lg-3 col-md-3 col-sm-3">
                     <div class="form-group">
                         <label for="kota">Kota Tujuan</label>
                         <input type="hidden" name="namakota" id="namakota">
@@ -26,23 +26,23 @@ if($this->session->userdata('nama_user')) {
                             <?php }; ?>
                         </select>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="form-group">
                         <label class="control-label">Pilih Tanggal Berangkat</label>
                         <input class="form-control" type="text" name="tgl1" id="tanggal1" placeholder="Tanggal Berangkat" value="" required />
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                     <div class="form-group">
                         <label class="control-label">Pilih Tanggal Pulang</label>
                         <input class="form-control" type="text" name="tgl2" id="tanggal2" placeholder="Tanggal Pulang" value="" required />
                     </div>
                 </div>
                 <br>
-                <div class="col-lg-3 col-md-3 col-sm-3">
+                <div class="col-lg-4 col-md-4 col-sm-4">
                     <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Cari Jadwal</button>
                 </div>
             </form>
@@ -50,20 +50,20 @@ if($this->session->userdata('nama_user')) {
     </div><!--/row -->
 
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4">
+        <!-- <div class="col-lg-4 col-md-4 col-sm-4">
             <p><b>Kota Tujuan:</b> <?=$post[1]?></p>
         </div>
 
         <div class="col-lg-4 col-md-4 col-sm-4">
             <p><b>Tarif:</b> Rp. <?=$post[2]?></p>
-        </div>
+        </div> -->
 
         <div class="col-lg-4 col-md-4 col-sm-4">
             <p><b>Tanggal:</b> <?=date("d M Y", strtotime($post[3])) ?> - <?=date("d M Y", strtotime($post[4])) ?></p>
         </div>
 
     </div>
-    <?php if ($post[0] == null) { ?>
+    <?php if ($schedules == null) { ?>
         <table class="table table-style-1">
         <thead>
             <tr>
@@ -104,7 +104,7 @@ if($this->session->userdata('nama_user')) {
                 <td><?= $schedule->warna_kendaraan ?></td>
                 <td><?= $schedule->plat_kendaraan ?></td>
                 <td><?= $schedule->jumlah_penumpang_kendaraan ?></td>
-                <td>Rp. <?= $schedule->harga_kendaraan ?></td>
+                <td><?= rupiah($schedule->harga_kendaraan); ?></td>
                 <td>
                     <a href="#"
                     id="buttonbooking"
@@ -115,7 +115,7 @@ if($this->session->userdata('nama_user')) {
                     data-tgl2="<?=$post[4] ?>"
                     data-formatedtgl1="<?=date("d M Y", strtotime($post[3])) ?>"
                     data-formatedtgl2="<?=date("d M Y", strtotime($post[4])) ?>"
-                    data-hari="<?= $post[5] ?>"
+                    data-hari="<?= $post[5] + 1 ?>"
                     data-idkategori="<?= $schedule->id_kategori ?>"
                     data-idkendaraan="<?= $schedule->id_kendaraan ?>"
                     data-nama="<?= $schedule->nama_kendaraan ?>"
@@ -150,11 +150,11 @@ if($this->session->userdata('nama_user')) {
         <form class="form-donation" action="<?=base_url('Jadwal/booking')?>" method="post">
             <h3 class="title-style-1 text-center">Detail Booking<span class="title-under"></span>  </h3>
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="form-group col-md-12 ">
                     <input type="text" class="form-control" name="penjemputan" placeholder="Alamat Penjemputan*" required>
                 </div>
-            </div>
+            </div> -->
 
             <div class="row">
                 <div class="form-group col-md-12 ">
@@ -164,8 +164,8 @@ if($this->session->userdata('nama_user')) {
 
             <div class="row">
                 <ul>
-                    <li><b> Kota Tujuan: </b><span id="kotatujuan"></span></li>
-                    <li><b> Tarif: </b><span id="tarif"></span></li>
+                    <!-- <li><b> Kota Tujuan: </b><span id="kotatujuan"></span></li> -->
+                    <!-- <li><b> Tarif: </b><span id="tarif"></span></li> -->
                     <li><b> Tanggal: </b><span id="tgl1"></span><span> - </span><span id="tgl2"></span>&nbsp<span id="hari"></span></li>
                     <li><b> Jenis Kendaraan: </b><span id="kendaraan"></span></li>
                     <li><b> Harga Kendaraan: </b><span id="hargakendaraan"></span></li>
@@ -175,7 +175,7 @@ if($this->session->userdata('nama_user')) {
 
             <div class="row">
                 <div class="form-group col-md-12 ">
-                    <p>Apakah anda yakin ingin booking travel ini?</p>
+                    <p>Apakah anda yakin ingin booking kendaraan ini?</p>
                 </div>
             </div>
             
@@ -338,9 +338,9 @@ if($this->session->userdata('nama_user')) {
             let total = 0
 
             if (div.data('hari') == 0) {
-                total = div.data('harga') + div.data('tarif')
+                total = div.data('harga')
             } else {
-                total = div.data('harga') * div.data('hari') + div.data('tarif')
+                total = div.data('harga') * div.data('hari')
             }
             
 

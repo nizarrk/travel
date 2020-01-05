@@ -7,10 +7,10 @@ class JadwalModel extends CI_Model
     public  $id_jadwal,
             $kode_jadwal,
             $id_kendaraan,
-            $id_kota,
+            // $id_kota,
             $id_user,
             $tgl_berangkat,
-            $alamat_penjemputan,
+            // $alamat_penjemputan,
             $tgl_pulang,
             $total_biaya,
             $status_jadwal;
@@ -33,10 +33,6 @@ class JadwalModel extends CI_Model
                     kendaraan b 
                 ON 
                     a.id_kendaraan = b.id_kendaraan 
-                JOIN 
-                    kota c 
-                ON 
-                    a.id_kota = c.id_kota 
                 JOIN 
                     user d 
                 ON 
@@ -124,11 +120,11 @@ class JadwalModel extends CI_Model
         $post = $this->input->post();
         $this->kode_jadwal = $this->uniqueID('kode_jadwal', 'TRV-', 5);
         $this->id_kendaraan = $post["kendaraan"];
-        $this->id_kota = $post["kota"];
+        // $this->id_kota = $post["kota"];
         $this->id_user = $post["user"];
         $this->tgl_berangkat = $post["tgl1"];
         $this->tgl_pulang = $post["tgl2"];
-        $this->alamat_penjemputan = $post["penjemputan"];
+        // $this->alamat_penjemputan = $post["penjemputan"];
         $this->total_biaya = $post["total"];
         $this->status_jadwal = "Menunggu Pembayaran";
         $this->db->insert($this->_table, $this);
@@ -142,11 +138,11 @@ class JadwalModel extends CI_Model
         $post = $this->input->post();
         $this->kode_jadwal = $this->uniqueID('kode_jadwal', 'TRV-', 5);
         $this->id_kendaraan = $post["kendaraan"];
-        $this->id_kota = $post["kota"];
+        // $this->id_kota = $post["kota"];
         $this->id_user = $idUser;
         $this->tgl_berangkat = $post["tgl1"];
         $this->tgl_pulang = $post["tgl2"];
-        $this->alamat_penjemputan = $post["penjemputan"];
+        // $this->alamat_penjemputan = $post["penjemputan"];
         $this->total_biaya = $post["nominal"];
         $this->status_jadwal = "Selesai";
         $this->db->insert($this->_table, $this);
@@ -170,7 +166,7 @@ class JadwalModel extends CI_Model
         $this->id_jadwal = $post["id"];
         // $this->kode_jadwal = uniqid("TRV-");
         $this->id_kendaraan = $post["kendaraan"];
-        $this->id_kota = $post["kota"];
+        // $this->id_kota = $post["kota"];
         $this->id_user = $post["user"];
         $this->tgl_berangkat = $post["tgl1"];
         $this->tgl_pulang = $post["tgl2"];
