@@ -10,6 +10,7 @@ class Booking extends CI_Controller {
         $this->load->model("PembayaranModel");
         $this->load->model("NotifikasiModel");
         $this->load->helper('time');
+        $this->load->helper('rupiah');
 
         $this->NotifikasiModel->deleteOldNotif();
 

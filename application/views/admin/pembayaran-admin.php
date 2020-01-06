@@ -66,7 +66,7 @@
             </td>
             <td><?= $payment->no_rek_user ?></td>
             <td><?= $payment->nama_rek_user ?></td>
-            <td>Rp. <?= $payment->nominal_pembayaran ?></td>
+            <td><?= rupiah($payment->nominal_pembayaran) ?></td>
             <td><?= date("d M Y H:i:s", strtotime($payment->tgl_pembayaran)) ?></td>
             <td>
                 <img src="<?=base_url()?>/upload/pembayaran/<?=$payment->bukti_pembayaran?>" alt="<?=$payment->bukti_pembayaran?>" style="max-width: 150px;">

@@ -35,7 +35,7 @@
                 <th>Warna</th>
                 <th>Plat Nomor</th>
                 <th>Kota</th>
-                <th>Alamat Penjemputan</th>
+                <!-- <th>Alamat Penjemputan</th> -->
                 <th>Tanggal</th>
                 <th>Tanggal Pesan</th>
                 <th>Total Biaya</th>
@@ -71,10 +71,10 @@
             <td><?= $booking->warna_kendaraan ?></td>
             <td><?= $booking->plat_kendaraan ?></td>
             <td><?= $booking->nama_kota ?></td>
-            <td><?= $booking->alamat_penjemputan ?></td>
+            <!-- <td><?= $booking->alamat_penjemputan ?></td> -->
             <td><?= date("d M Y", strtotime($booking->tgl_berangkat)) ?> - <?= date("d M Y", strtotime($booking->tgl_pulang)) ?></td>
             <td><?= date("d M Y H:i:s", strtotime($booking->tgl_pesan)) ?></td>
-            <td>Rp. <?= $booking->total_biaya ?></td>
+            <td><?= rupiah($booking->total_biaya) ?></td>
             <td>
                 <?php if ($booking->status_jadwal == "Menunggu Pembayaran") { ?>
                     <span class="badge" style="background-color: #f5bc42;"><?= $booking->status_jadwal ?></span>

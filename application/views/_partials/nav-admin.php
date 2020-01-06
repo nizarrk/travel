@@ -42,7 +42,7 @@
                         <li><a class="<?= $this->uri->segment(2) == 'admin' ? 'is-active': '' ?>" href="<?= base_url('Dashboard/admin') ?>">HOME</a></li>
                         <li class="has-child <?= $this->uri->segment(1) == 'Admin' ? 'is-active': '' ?>"><a href="#">MANAGE</a>
                             <ul class="submenu">
-                                <li class="submenu-item"><a href="<?=base_url('Admin/Kota')?>">Kota </a></li>
+                                <!-- <li class="submenu-item"><a href="<?=base_url('Admin/Kota')?>">Kota </a></li> -->
                                 <li class="submenu-item"><a href="<?=base_url('Admin/Kendaraan')?>">Kendaraan </a></li>
                                 <li class="submenu-item"><a href="<?=base_url('Admin/Booking')?>">Booking </a></li>
                                 <li class="submenu-item"><a href="<?=base_url('Admin/Booking/pembayaran')?>">Pembayaran </a></li>

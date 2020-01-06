@@ -351,8 +351,8 @@ if($this->session->userdata('nama_user')) {
             $('#tgl2').text(div.data('formatedtgl2'));
             $('#hari').text("(" + div.data('hari') + " Hari)");
             $('#kendaraan').text(div.data('nama'));
-            $('#hargakendaraan').text("Rp. " + div.data('harga'));
-            $('#total').text("Rp. " + total);
+            $('#hargakendaraan').text(formatRupiah(div.data('harga').toString(), "Rp. "));
+            $('#total').text(formatRupiah(total.toString(), 'Rp. '));
 
             // Isi nilai pada field
             $('#inputkota').val(div.data('idkota'));
@@ -383,4 +383,21 @@ if($this->session->userdata('nama_user')) {
             $('#inputkendaraanoffline').val(div.data('idkendaraan'));
         });
     });
+
+    function formatRupiah(angka, prefix){
+			var number_string = angka.replace(/[^,\d]/g, '').toString(),
+			split   		= number_string.split(','),
+			sisa     		= split[0].length % 3,
+			rupiah     		= split[0].substr(0, sisa),
+			ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+ 
+			// tambahkan titik jika yang di input sudah menjadi angka ribuan
+			if(ribuan){
+				separator = sisa ? '.' : '';
+				rupiah += separator + ribuan.join('.');
+			}
+ 
+			rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+			return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+		}
 </script>
